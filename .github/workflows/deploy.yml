@@ -83,4 +83,5 @@ jobs:
       # ---- 6. 发布到 gh-pages (仅 main 的 push / 手动触发) ----
       - name: 🚀 Deploy to gh-pages
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-        run: mkdocs gh-deploy --force --message "🤖 CI deploy: ${{ github.sha }}"
+        run: |
+          mkdocs gh-deploy --force --message "🤖 CI deploy: ${{ github.sha }}"
