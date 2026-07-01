@@ -1,0 +1,155 @@
+# =============================================================================
+# 银川一中 Wiki · MkDocs Material 配置
+# 文档: https://squidfunk.github.io/mkdocs-material/
+# =============================================================================
+
+# ----------------------------------------------------------------------------
+# 站点信息
+# ----------------------------------------------------------------------------
+site_name: 银川一中 Wiki
+site_description: 银川一中校园维基
+site_author: 银川一中er
+site_url: https://smartThise.github.io/ycyz-wiki/
+
+# ----------------------------------------------------------------------------
+# 仓库信息 —— 右上角"铅笔"图标的来源
+# repo_url     : 仓库主页
+# repo_name    : 显示在右上角的名称
+# edit_uri     : 编辑入口前缀;拼接成 "<repo_url>/<edit_uri>/<文件路径>"
+#                即 https://github.com/smartThise/ycyz-wiki/edit/main/docs/<文件>
+# ----------------------------------------------------------------------------
+repo_name: GitHub
+repo_url: https://github.com/smartThise/ycyz-wiki
+edit_uri: edit/main/docs/
+
+# ----------------------------------------------------------------------------
+# 主题配置 (Material for MkDocs)
+# ----------------------------------------------------------------------------
+theme:
+  name: material
+  language: zh
+  font:
+    text: Noto Sans SC
+    code: JetBrains Mono
+
+  # 图标与 Logo (可替换 docs/overrides 下的素材)
+  icon:
+    logo: material/school
+    repo: fontawesome/brands/github
+    edit: material/pencil
+
+  # ---- 核心特性开关 ----
+  features:
+    # 顶部大标签栏导航
+    - navigation.tabs
+    # 滚动时标签栏吸附在顶部
+    - navigation.tabs.sticky
+    # 侧边栏按章节折叠 / 层级展示
+    - navigation.sections
+    # 默认展开所有可折叠节点
+    - navigation.expand
+    # 允许章节标题本身也是一个 index 页
+    - navigation.indexes
+    # 当前页路径自动高亮
+    - navigation.tracking
+    # 返回顶部按钮
+    - navigation.top
+    # 搜索框增强
+    - search.suggest
+    - search.highlight
+    - search.share
+    # 代码块一键复制
+    - content.code.copy
+    # 代码块注解
+    - content.code.annotate
+    # 右上角"编辑此页"铅笔按钮 —— 全站 PR 入口(核心,Material 9.x 需显式开启)
+    - content.action.edit
+    # 内容页脚锚点
+    - content.tooltips
+
+  # ---- 配色 / 明暗切换 ----
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换至深色模式
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换至浅色模式
+
+# ----------------------------------------------------------------------------
+# Markdown 扩展
+# ----------------------------------------------------------------------------
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# ----------------------------------------------------------------------------
+# 插件
+# ----------------------------------------------------------------------------
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+# ----------------------------------------------------------------------------
+# 额外自定义 CSS / JS (可选,留空亦不影响构建)
+# ----------------------------------------------------------------------------
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+
+# ----------------------------------------------------------------------------
+# 树状导航结构示例
+# 一行 = 侧边栏一个节点;缩进 = 层级
+# ----------------------------------------------------------------------------
+nav:
+  - 首页: index.md
+
+  - 校园生存指南:
+      - 校园生存指南/index.md
+      - 食在校内: 校园生存指南/食在校内.md
+
+  - 维基文库:
+      - 维基文库/index.md
+      - 老师语录: 维基文库/老师语录.md
